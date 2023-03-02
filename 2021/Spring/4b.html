@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Form validation using js</title></head>
+<body>
+    <h3>Form</h3>
+    <form action="" name="myForm" onsubmit="return validateForm()" method="get">
+        <label for="name">Name : </label>
+        <input type="text" id="name">
+        <br><br>
+        <label for="email">Email : </label>
+        <input type="text" id="email">
+        <br><br>
+        <label for="contact">Contact No : </label>
+        <input type="text" id="contact">
+        <br><br>
+        <input type="submit" value="Submit">
+        <br><br>
+
+        <p id="message"></p>
+    </form>
+
+    <script>
+        function validateForm () {
+
+            // get value by using id
+            var emailId = document.getElementById("email").value;
+            var name = document.getElementById("name").value;
+            var contact = document.getElementById("contact").value;
+
+            // regex for email 
+            var emailPattern = /^([A-Za-z0-9_\.])+\@([A-Za-z])+\.([A-Za-z]{2,4})$/;
+            // validation
+            var message1;
+            if (emailPattern.test(emailId)){
+                message1 = "Email validation successful";
+            } else{
+                message1 = "Invalid email";
+            }
+            
+            // regex for name
+            var namePattern = /^([A-Za-z])$/;
+            // validation
+            var message2;
+            if (namePattern.test(name)){
+                message2 = "Name validation successful";
+            } else {
+                message2 = "Invalid name";
+            }
+        
+            // regex for contact no
+            var contactPattern = /^([0-9])$/;
+            // validation
+            var message3;
+            if (contactPattern.test(contact)){
+                message3 = "Contact No validation successful";
+            } else {
+                message3 = "Invalid contact no";
+            }
+
+            document.getElementById("message").innerHTML = "Results \n"+message1+"\n"+message2+"\n"+message3;            
+        }
+    </script>
+</body>
+</html>
