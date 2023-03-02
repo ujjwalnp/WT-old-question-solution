@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Form Validation using JS</title>
+</head>
+
+<body>
+    <h3>Login</h3>
+    <form name="myForm" onsubmit="return validateForm()" method="get">
+        <label for="email">Email : </label>
+        <input type="text" id="email">
+        <br><br>
+        <label for="password">Password : </label>
+        <input type="password" id="password">
+        <br><br>
+        <input type="submit" value="Submit">
+        <br><br>
+        <p id="message"></p>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Get the value of the input field using id
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Message
+            var message;
+
+            // Email condition
+            var emailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_])+\.([A-Za-z]{2,4})$/;
+            // var emailPattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+         
+
+            if (email == "" && password == ""){
+                message =  "Fields are empty!";
+            }
+            else if (emailPattern.test(email)){
+                message = "Email validation Successful!";
+            }
+            else {
+                message = "Invalid Email!";
+            }
+
+            document.getElementById("message").innerHTML = message;
+        }
+    </script>
+</body>
+
+</html>
