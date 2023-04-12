@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Factorial using JS
+    </title>
+</head>
+<body>
+    <div>
+        <p id="message"></p>
+    </div>
+
+
+    <script>
+        var number = window.prompt("Enter Number ");
+
+        function _factorial(number){
+            while (number>0){
+                return number*_factorial(number-1);
+            }
+        }
+
+        var result = _factorial(number);
+        document.getElementById('message').innerText("result");
+    </script>
+</body>
+</html>
