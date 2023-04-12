@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="drag-item" draggable="true">
+        Drag Me!
+    </div>
+
+    <div id="drop-zone">
+        Drop Here!
+    </div>
+
+
+
+    <script>
+        const dragItem = document.getElementById("drag-item");
+        const dropZone = document.getElementById("drop-zone");
+
+        // Set event listeners for drag events on the drag item
+        dragItem.addEventListener("dragstart", dragStart);
+        dragItem.addEventListener("dragend", dragEnd);
+
+        // Set event listeners for drop events on the drop zone
+        dropZone.addEventListener("dragover", dragOver);
+        dropZone.addEventListener("drop", drop);
+
+        // Functions to handle drag events
+        function dragStart(event) {
+            // Set the data that will be transferred during the drag operation
+            event.dataTransfer.setData("text/plain", event.target.id);
+        }
+
+        function dragEnd(event) {
+            // Remove any styles applied to the drag item
+            event.target.style.opacity = "";
+        }
+
+        // Functions to handle drop events
+        function dragOver(event) {
+            // Prevent default behavior to allow drop
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            // Get the id of the dragged item from the data transfer
+            const draggedItemId = event.dataTransfer.getData("text/plain");
+
+            // Get the dragged item element
+            const draggedItem = document.getElementById(draggedItemId);
+
+            // Move the dragged item to the drop zone
+            event.target.appendChild(draggedItem);
+        }
+
+    </script>
+</body>
+
+</html>
