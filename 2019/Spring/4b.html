@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic Image Stacking</title>
+        <style>
+            #image-stack {
+                position: relative;
+            }
+            #image-stack img {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="image-stack">
+            <img src="./../../2021/Spring/bagmati.png" alt="image1">
+            <img src="./../../2021/Spring/karnali.png" alt="image2">
+        </div>
+
+        <script>
+            var newImage = document.createElement('img');
+            newImage.src = "./../../2021/Spring/bagmati.png";
+            document.getElementById("image-stack").appendChild(newImage);
+        </script>
+    </body>
+</html>
