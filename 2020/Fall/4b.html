@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JS Mouseclick Event</title>
+    </head>
+    <body>
+        <div id="myElement">
+            <p id="message"></p>
+        </div>
+    
+        <script>
+            var element = document.getElementById("myElement");
+
+            element.addEventListener("mousemove", handleMouseMove());
+            element.addEventListener("click", handleMouseClick());
+
+            function handleMouseClick(event){
+
+                var x = event.clientX - event.target.offsetLeft;
+                var y = event.clientY - event.target.offsetRight;
+                
+                document.getElementById('message').innerHTML = "Mouse Position : "+" . "+y;
+            }
+        </script>
+    </body>
+</html>
